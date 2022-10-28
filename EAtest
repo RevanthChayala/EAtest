@@ -11,6 +11,8 @@ public class EAtest {
 
   public static void main (String args[]) throws InterruptedException {
     
+    try {
+    
     System.setProperty("webdriver.chrome.driver","C:\\Users\\hemarevanth.chayala\\Downloads\\chromedriver.exe");
     
     WebDriver driver;
@@ -46,8 +48,10 @@ public class EAtest {
      
      driver.close();
      
-   }
-  
+   } catch (Exception e){
+   
+      System.out.println("webite is not loaded with data");
+      }
+  }
  }
-  
-    
+ 
