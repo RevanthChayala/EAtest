@@ -1,0 +1,49 @@
+package Sample;
+
+import java.util.List;
+import java.util.stream.Collectors;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class EAtest {
+
+  public static void main (String args[]) throws InterruptedException {
+    
+    System.setProperty("webdriver.chrome.driver","C:\\Users\\hemarevanth.chayala\\Downloads\\chromedriver.exe");
+    
+    WebDriver driver;
+    
+    driver = new ChromeDriver();
+    
+    driver.get("http://localhost:4200/festivals");
+    
+    driver.manage().window().maximize();
+    
+    String expectedTitle = "EaCodingTest";
+    
+    String actualTitle = driver.getTitle();
+    
+    if (actualTitle.equals(expectedTitle))
+    {
+      System.out.println("Expected website is loaded");
+    }
+     else
+     {
+       System.out.println("Too many requets, throttling");
+     }
+     
+     List<WebElement> musicFestivals = driver.findElements(By.xpath("/html/body/app-root/app-festivals/ol"));
+     
+     List<WebElement> sortedMusicFestivals = musicFestivals.stream().sorted().collect(Collectors.toList());
+     
+     sortedMusicFestivals.forEach(System.out::println);
+     
+     driver.close();
+     
+   }
+  
+ }
+  
+    
