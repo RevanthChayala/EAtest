@@ -27,12 +27,16 @@ public class EAtest {
     
     if (actualTitle.equals(expectedTitle))
     {
-      System.out.println("Expected website is loaded");
+      //Validates the First Test
+      System.out.println("EaCodingTest website is loaded");
     }
      else
      {
+        //Validates the Second Test
        System.out.println("Too many requets, throttling");
      }
+     
+     //Validates the Third Test
      
      List<WebElement> musicFestivals = driver.findElements(By.xpath("/html/body/app-root/app-festivals/ol"));
      
